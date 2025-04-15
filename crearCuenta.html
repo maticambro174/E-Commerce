@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesion</title>
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <header>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <a href="tienda.html"><img src="./assets/tiendaIcono.jpg" alt="imagen de tienda" height="50px" width="50px"></a>
+            <li><a href="iniciarSesion.html">Iniciar sesion</a></li>
+            <li><a href="crearCuenta.html">Crear cuenta</a></li>
+        </ul>
+    </header>
+    <form action="" method="post">
+        <div>
+            <label for="txtNombre"><b>Nombre:</b></label>
+            <input type="text" id="txtNombre" name="txtNombre" class="" placeholder="Ingrese su nombre" required>
+            <br><br>
+            <label for="txtApellido"><b>Apellido:</b></label>
+            <input type="text" id="txtApellido" name="txtApellido" class="" placeholder="Ingrese su apellido" required>
+            <br><br>
+        </div>
+        <div>
+            <label for="txtEmail"><b>Email:</b></label>
+            <input type="email" name="txtEmail" id="txtEmail" required>
+            <br><br>
+            <label for="txtPass"><b>Contraseña:</b></label>
+            <input type="password" name="txtPass" id="txtPass" required>
+            <br><br>
+        </div>
+        <div>
+            <label for="date"><b>Fecha de nacimiento:</b></label>
+            <input type="date" name="date" id="date" required>
+            <input type="number" name="" id="" min="3" step="4">
+        </div>
+        <div>
+            <br>
+            <input type="submit" value="Confirmar">
+        </div>
+    </form></body>
+
+</html>
