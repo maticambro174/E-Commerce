@@ -28,13 +28,11 @@ const products = [
   }
 ];
 
-// Render dinámico
 window.addEventListener('DOMContentLoaded', () => {
   const cards = products.map(p => cardComponent(p)).join('');
   cardContainer.innerHTML = cards;
 });
 
-// Control de cantidad
 window.increment = function(id) {
   const qty = document.getElementById(`qty-${id}`);
   qty.textContent = parseInt(qty.textContent) + 1;
@@ -54,6 +52,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('navbarContainer');
     if (container) {
         container.innerHTML = navbarComponent;
-        cerrarSesion(); // activa el botón luego de que el navbar se haya insertado en el DOM
+        cerrarSesion();
     }
 });
