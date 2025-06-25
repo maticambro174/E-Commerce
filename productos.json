@@ -1,0 +1,50 @@
+[
+  {
+    "id": "camisa1",
+    "categoria": "Camisas",
+    "titulo": "Camisa Azul",
+    "descripcion": "Camisa de algodón azul oscura",
+    "precio": 2500,
+    "imagen": "https://w7.pngwing.com/pngs/895/537/png-transparent-denim-sleeve-others-blue-electric-blue-blue-shirt.png"
+  },
+  {
+    "id": "camisa2",
+    "categoria": "Camisas",
+    "titulo": "Camisa Blanca",
+    "descripcion": "Clásica camisa blanca",
+    "precio": 2700,
+    "imagen": "https://png.pngtree.com/png-clipart/20230429/original/pngtree-shirt-white-long-sleeve-striped-background-png-image_9120492.png"
+  },
+  {
+    "id": "pantalon1",
+    "categoria": "Pantalones",
+    "titulo": "Jeans",
+    "descripcion": "Pantalones de Jean",
+    "precio": 3500,
+    "imagen": "https://pngimg.com/uploads/jeans/jeans_PNG5745.png"
+  },
+  {
+    "id": "pantalon2",
+    "categoria": "Pantalones",
+    "titulo": "Chinos",
+    "descripcion": "Pantalones de algodón gris",
+    "precio": 3600,
+    "imagen": "https://media.wuerth.com/stmedia/modyf/shop/900px/4969076.jpg"
+  },
+  {
+    "id": "zapatilla1",
+    "categoria": "Zapatillas",
+    "titulo": "Zapatillas Urbanas",
+    "descripcion": "Zapatillas cómodas para uso diario",
+    "precio": 5200,
+    "imagen": "https://keady.com.ar/wp-content/uploads/2020/08/980-CI224-pies.jpg"
+  },
+  {
+    "id": "zapatilla2",
+    "categoria": "Zapatillas",
+    "titulo": "Zapatillas Running",
+    "descripcion": "Ideales para correr",
+    "precio": 5400,
+    "imagen": "https://e7.pngegg.com/pngimages/382/622/png-clipart-sneakers-skate-shoe-nike-one-nike-shoe-purple-fashion.png"
+  }
+]

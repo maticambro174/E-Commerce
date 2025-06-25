@@ -2,35 +2,38 @@ import { navbarComponent } from './navbar.js';
 import { cerrarSesion } from './cerrarSesion.js';
 import { cardComponent } from './cardComponent.js';
 
-const cardContainer = document.getElementById('cardContainer');
-
-const products = [
-  {
-    id: 'camisa1',
-    titulo: 'Camisas',
-    descripcion: 'Camisas frescas, cómodas y con diseños modernos.',
-    precio: 2500,
-    imagen: 'https://static.vecteezy.com/system/resources/previews/012/628/185/original/pack-of-color-t-shirts-on-transparent-background-free-png.png'
-  },
-  {
-    id: 'pantalon1',
-    titulo: 'Pantalones',
-    descripcion: 'Pantalones casuales para todo tipo de ocasión.',
-    precio: 3500,
-    imagen: 'https://estaticos-cdn.sport.es/clip/657b54ac-90fd-42fe-9b86-8529e59d7803_alta-libre-aspect-ratio_default_0.jpg'
-  },
-  {
-    id: 'zapatilla1',
-    titulo: 'Zapatillas',
-    descripcion: 'Zapatillas deportivas cómodas y con gran estilo.',
-    precio: 5200,
-    imagen: 'https://www.shutterstock.com/shutterstock/photos/1272576460/display_1500/stock-vector-vector-fitness-sneakers-shoes-for-training-running-shoe-vector-illustration-sport-shoes-set-1272576460.jpg'
-  }
-];
-
 window.addEventListener('DOMContentLoaded', () => {
-  const cards = products.map(p => cardComponent(p)).join('');
-  cardContainer.innerHTML = cards;
+  const container = document.getElementById('navbarContainer');
+  if (container) {
+    container.innerHTML = navbarComponent;
+    cerrarSesion();
+  }
+
+  const cardContainer = document.getElementById('cardContainer');
+  if (cardContainer) {
+    fetch('./productos.json')
+      .then(res => res.json())
+      .then(productos => {
+        const categorias = ['Camisas', 'Pantalones', 'Zapatillas'];
+        let html = '';
+
+        categorias.forEach(categoria => {
+          const productosCategoria = productos
+            .filter(p => p.categoria === categoria)
+            .slice(0, 3);
+
+          html += `<h2>${categoria}</h2><div class="row row-cols-1 row-cols-md-1 g-4 mb-5">`;
+          html += productosCategoria.map(p => cardComponent(p)).join('');
+          html += '</div>';
+        });
+
+        cardContainer.innerHTML = html;
+      })
+      .catch(err => {
+        console.error('Error cargando productos:', err);
+        cardContainer.innerHTML = '<p>Error al cargar productos.</p>';
+      });
+  }
 });
 
 window.increment = function(id) {
@@ -45,13 +48,3 @@ window.decrement = function(id) {
     qty.textContent = value - 1;
   }
 };
-
-
-
-window.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('navbarContainer');
-    if (container) {
-        container.innerHTML = navbarComponent;
-        cerrarSesion();
-    }
-});
