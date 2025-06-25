@@ -1,4 +1,4 @@
-const url = 'http://127.0.0.1:5500/';
+const url = './';
 
 const navElements = [
   { title: 'Página Principal', link: `${url}index.html` },
