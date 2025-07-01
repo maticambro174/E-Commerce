@@ -48,3 +48,36 @@ window.decrement = function(id) {
     qty.textContent = value - 1;
   }
 };
+
+window.añadirCarrito=function(productoId){
+  fetch('./productos.json')
+  .then(res=>res.json())
+  .then(productos=>{
+    const producto=productos.find(p=>p.id===productoId);
+    const cantidad=parseInt(document.getElementById(`qty-${productoId}`).textContent);
+
+    if(!cantidad || cantidad<1){
+      alert("Selecciona una cantidad mayor a 0");
+      return;
+    }
+    const carrito=JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    const index=carrito.findIndex(item=>item.id===productoId);
+
+    if(index!==-1){
+      carrito[index].cantidad+=cantidad;
+    }else{
+      carrito.push({
+        id: producto.id,
+        titulo: producto.titulo,
+        precio: producto.precio,
+        cantidad:cantidad
+      });
+    }
+
+    localStorage.setItem('cartItems', JSON.stringify(carrito));
+  })
+  .catch(err=>{
+    console.error("Error al agregar al carrito", err)
+  })
+}

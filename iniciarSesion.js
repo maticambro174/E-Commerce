@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const pass = form.pass.value;
 
         if (email && pass) {
+            sessionStorage.setItem('userData', JSON.stringify({email, pass}));
             window.location.href = "index.html";
         } else {
             alert("Por favor complete todos los campos.");

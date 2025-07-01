@@ -2,6 +2,7 @@ const url = './';
 
 const navElements = [
   { title: 'Página Principal', link: `${url}index.html` },
+  { title: 'Tu Tienda', link: `${url}tienda.html` },
   { title: 'Iniciar Sesión', link: `${url}iniciarSesion.html` },
   { title: 'Crear Cuenta', link: `${url}crearCuenta.html` },
 ];

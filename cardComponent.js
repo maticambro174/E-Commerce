@@ -12,6 +12,7 @@ export const cardComponent = (product) => {
             <span id="qty-${product.id}">0</span>
             <button class="btn btn-sm btn-outline-primary" onclick="increment('${product.id}')">+</button>
           </div>
+          <button class="btn btn-success w-100 mt-2" onclick="añadirCarrito('${product.id}')">Agregar al carrito</button>
         </div>
       </div>
     </div>
