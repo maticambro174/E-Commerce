@@ -76,6 +76,12 @@ window.añadirCarrito=function(productoId){
     }
 
     localStorage.setItem('cartItems', JSON.stringify(carrito));
+    const toastElement = document.getElementById('addToast');
+    if (toastElement) {
+      const toast = new bootstrap.Toast(toastElement);
+      toast.show();
+    }
+
   })
   .catch(err=>{
     console.error("Error al agregar al carrito", err)

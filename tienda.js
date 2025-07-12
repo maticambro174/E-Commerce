@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.eliminar = function(index) {
+  const confirmar = confirm("¿Estás seguro de que querés eliminar este producto del carrito?");
+  if (!confirmar) return;
+
   const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
   cart.splice(index, 1);
   localStorage.setItem('cartItems', JSON.stringify(cart));
