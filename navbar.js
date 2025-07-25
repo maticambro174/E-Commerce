@@ -1,4 +1,6 @@
 const url = './';
+const user = JSON.parse(sessionStorage.getItem("userData"));
+const saludo = user ? `<span class="navbar-text ms-3">Hola, ${user.nombre || user.email}</span>` : "";
 
 const navElements = [
   { title: 'Página Principal', link: `${url}index.html` },
@@ -37,7 +39,10 @@ export const navbarComponent = `
           </ul>
         </li>
       </ul>
-      <button id="btnLogout" class="btn btn-danger ms-auto">Cerrar Sesión</button>
+      <div class="d-flex align-items-center ms-auto gap-3">
+        ${saludo}
+        <button id="btnLogout" class="btn btn-danger">Cerrar Sesión</button>
+      </div>
     </div>
   </div>
 </nav>

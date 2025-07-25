@@ -2,6 +2,12 @@ import { navbarComponent } from './navbar.js';
 import { cerrarSesion } from './cerrarSesion.js';
 
 document.addEventListener("DOMContentLoaded", () => {
+  const user = sessionStorage.getItem('userData');
+  if (!user) {
+    alert("Debes iniciar sesión para acceder a Tu Tienda");
+    window.location.href = "iniciarSesion.html";
+    return;
+  }
   const nav = document.getElementById("navbarContainer");
   nav.innerHTML = navbarComponent;
   cerrarSesion();
