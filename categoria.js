@@ -52,6 +52,13 @@ window.decrement = function (id) {
 };
 
 window.añadirCarrito = function (productoId) {
+  const user = sessionStorage.getItem("userData");
+  if (!user) {
+    alert("Debes iniciar sesión para agregar productos al carrito.");
+    window.location.href = "iniciarSesion.html";
+    return;
+  }
+
   fetch('./productos.json')
     .then(res => res.json())
     .then(productos => {
@@ -69,10 +76,25 @@ window.añadirCarrito = function (productoId) {
       if (index !== -1) {
         carrito[index].cantidad += cantidad;
       } else {
-        carrito.push({ id: producto.id, titulo: producto.titulo, precio: producto.precio, cantidad });
+        carrito.push({
+          id: producto.id,
+          titulo: producto.titulo,
+          precio: producto.precio,
+          cantidad: cantidad
+        });
       }
 
       localStorage.setItem('cartItems', JSON.stringify(carrito));
-    })
+      mostrarSnackbar("Producto añadido al carrito.");    })
     .catch(err => console.error("Error al agregar al carrito", err));
 };
+
+function mostrarSnackbar(mensaje = "Producto añadido al carrito.") {
+  const toastEl = document.getElementById('addToast');
+  if (!toastEl) return;
+
+  toastEl.querySelector('.toast-body').textContent = mensaje;
+
+  const toast = new bootstrap.Toast(toastEl);
+  toast.show();
+}

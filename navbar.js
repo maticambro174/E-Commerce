@@ -5,8 +5,10 @@ const saludo = user ? `<span class="navbar-text ms-3">Hola, ${user.nombre || use
 const navElements = [
   { title: 'Página Principal', link: `${url}index.html` },
   { title: 'Tu Tienda', link: `${url}tienda.html` },
-  { title: 'Iniciar Sesión', link: `${url}iniciarSesion.html` },
-  { title: 'Crear Cuenta', link: `${url}crearCuenta.html` },
+  ...(!user ? [
+    { title: 'Iniciar Sesión', link: `${url}iniciarSesion.html` },
+    { title: 'Crear Cuenta', link: `${url}crearCuenta.html` }
+  ] : [])
 ];
 
 const categorias = [
@@ -39,10 +41,12 @@ export const navbarComponent = `
           </ul>
         </li>
       </ul>
-      <div class="d-flex align-items-center ms-auto gap-3">
-        ${saludo}
-        <button id="btnLogout" class="btn btn-danger">Cerrar Sesión</button>
-      </div>
+      ${user ? `
+        <div class="d-flex align-items-center ms-auto gap-3">
+          ${saludo}
+          <button id="btnLogout" class="btn btn-danger">Cerrar Sesión</button>
+        </div>
+      ` : ''}
     </div>
   </div>
 </nav>
